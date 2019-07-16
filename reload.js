@@ -1,14 +1,14 @@
 function checkNewTweetsRefresh() {
   if(document.readyState != 'interactive') {
-    if(document.body.scrollTop == 0 && window.scrollY == 0) {
-      if(document.getElementsByClassName('js-new-tweets-bar').length > 0) {
-        document.getElementsByClassName('js-new-tweets-bar')[0].click();
-      }
+    let tags = document.querySelectorAll('*[aria-label^="new tweets" i]');
+    for (let tag of tags) {
+      var evt = document.createEvent('Events');
+      evt.initEvent('click', true, false);
+      tag.dispatchEvent(evt);
     }
   }
-  window.setTimeout('checkNewTweetsRefresh()', 1500);
 }
 
 (function() {
-  window.setTimeout('checkNewTweetsRefresh()', 5000);
+  window.addEventListener('scroll', checkNewTweetsRefresh);
 })();
