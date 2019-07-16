@@ -4,7 +4,7 @@
    },
    "content_scripts": [ {
       "all_frames": true,
-      "js": [ "jquery-1.7.2.min.js", "functions.js" ],
+      "js": [ "reload.js" ],
       "matches": [ "http://twitter.com/*", "https://twitter.com/*" ],
       "run_at": "document_idle"
    } ],
