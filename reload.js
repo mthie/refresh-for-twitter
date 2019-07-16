@@ -6,9 +6,17 @@ function checkNewTweetsRefresh() {
         continue;
       }
 
+      console.log("New tweets found", tag);
       var evt = document.createEvent('Events');
       evt.initEvent('click', true, false);
-      tag.dispatchEvent(evt);
+      tag.firstChild.dispatchEvent(evt);
+      window.setTimeout(function() {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }, 600);
     }
   }
 }
